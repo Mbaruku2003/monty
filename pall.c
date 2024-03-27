@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * cpall - prints all elements of a header
+ * c_pall - prints all elements of a header
  * @head: the head pointer of all the locations of the list
  * @count: counts the elements of the header
  * Return: void
