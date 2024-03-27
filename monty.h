@@ -56,5 +56,8 @@ extern b_t busy;
 void c_push(stack_t **head, unsigned int count);
 int c_pull(stack_t **head, unsigned int count);
 void adds_node(stack_t **head, int n);
+void free_stack(stack_t *head);
+void c_queue(stack_t **head, unsigned int count);
+void addqueue(stack_t **head, int n);
 
 #endif
