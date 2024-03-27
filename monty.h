@@ -4,6 +4,11 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <string.h>
+#include <ctype.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -32,6 +37,21 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct b_s - contain args, file, line and content
+ * @arg: the value
+ * @content:lines contents
+ * @linefile: changes stacks to ques and vice versa
+ * Description: carries values through program
+ */
+typedef struct b_s
+{
+	char *arg;
+	FILE *file;
+	char *content;
+	int linefile;
+} b_t;
+extern b_t busy;
 
 void c_push(stack_t **head, unsigned int count);
 int c_pull(stack_t **head, unsigned int count);
