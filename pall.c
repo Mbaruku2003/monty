@@ -11,11 +11,13 @@ void dpall(stack_t **head, unsigned int count)
 	(void)count;
 
 	h = *head;
-	if (h == NULL)
-		return;
 	while (h != NULL)
 	{
 		printf("%d", h->n);
 		h = h->next;
+		if (h == *head)
+		{
+			return;
+		}
 	}
 }

@@ -8,6 +8,5 @@
 void dnop(stack_t **head, unsigned int counter)
 {
 	(void)counter;
-
-	*head = NULL;
+	(void)head;
 }
