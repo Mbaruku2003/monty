@@ -51,13 +51,14 @@ typedef struct b_s
 	char *content;
 	int linefile;
 } b_t;
-extern b_t busy;
+extern b_t b;
 
-void c_push(stack_t **head, unsigned int count);
-int c_pull(stack_t **head, unsigned int count);
+void dpush(stack_t **head, unsigned int count);
+void dnop(stack_t **head, unsigned int counter);
+int dpull(stack_t **head, unsigned int count);
 void adds_node(stack_t **head, int n);
 void free_stack(stack_t *head);
-void c_queue(stack_t **head, unsigned int count);
+void dqueue(stack_t **head, unsigned int count);
 void addqueue(stack_t **head, int n);
 
 #endif

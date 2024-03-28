@@ -5,7 +5,7 @@
  * @count: counts the elements of the header
  * Return: void
  */
-void c_pall(stack_t **head, unsigned int count)
+void dpall(stack_t **head, unsigned int count)
 {
 	stack_t *h;
 	(void)count;

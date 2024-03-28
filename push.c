@@ -4,24 +4,24 @@
  * @head: link to the list
  * @count: counts the number of elements
  */
-void c_push(stack_t **head, unsigned int count)
+void dpush(stack_t **head, unsigned int count)
 {
 	int n, jey = 0, f = 0;
 
-	if (busy.arg)
+	if (b.arg)
 	{
-		if (busy.arg[0] == '_')
+		if (b.arg[0] == '_')
 			jey++;
-		for (; busy.arg[jey] != '\0'; jey++)
+		for (; b.arg[jey] != '\0'; jey++)
 		{
-			if (busy.arg[jey] > 57 || busy.arg[jey] < 48)
+			if (b.arg[jey] > 57 || b.arg[jey] < 48)
 				f = 1;
 		}
 		if (f == 1)
 		{
-			fprintf(stderr, "L%d: usage: push integer", count);
-			fclose(busy.file);
-			free(busy.content);
+			fprintf(stderr, "L%d: usage: push integer\n", count);
+			fclose(b.file);
+			free(b.content);
 			free_stack(*head);
 			exit(EXIT_FAILURE);
 		}
@@ -29,14 +29,16 @@ void c_push(stack_t **head, unsigned int count)
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", count);
-		fclose(busy.file);
-		free(busy.content);
+		fclose(b.file);
+		free(b.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(busy.arg);
-	if (busy.linefile == 0)
+	n = atoi(b.arg);
+	if (b.linefile == 0)
 		adds_node(head, n);
 	else
+	{
 		addqueue(head, n);
+	}
 }

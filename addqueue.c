@@ -5,11 +5,11 @@
  * @count: counts the lines
  * Return: void
  */
-void c_queue(stack_t **head, unsigned int count)
+void dqueue(stack_t **head, unsigned int count)
 {
 	(void)head;
 	(void)count;
-	busy.linefile = 1;
+	b.linefile = 1;
 }
 /**
  * addqueue(stack_t **head, int n)
