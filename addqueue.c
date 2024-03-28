@@ -5,7 +5,7 @@
  * @count: counts the lines
  * Return: void
  */
-void dqueue(stack_t **head, unsigned int count)
+void d-queue(stack_t **head, unsigned int count)
 {
 	(void)head;
 	(void)count;
@@ -17,7 +17,7 @@ void dqueue(stack_t **head, unsigned int count)
  * @head: the head to the stack list
  * Return: no return
  */
-void dqueue(stack_t **stack, unsigned int line_number)
+void d_queue(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node, *alx;
 

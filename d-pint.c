@@ -11,10 +11,10 @@ void d_pint(stack_t **stack, unsigned int line_number)
 
 	if (var.stck_len == 0)
 	{
-		dprintf(STDOUT_FILENO,
+		write(STDOUT_FILENO,
 				"L%u: can't pint\n",
 				line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%D\n", head->n);
+	printf("%d\n", head->n);
 }

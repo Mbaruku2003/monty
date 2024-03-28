@@ -11,9 +11,7 @@ void d_add(stack_t **stack, unsigned int line_number)
 
 	if (bit.stack_length < 2)
 	{
-		dprintf(STDOUT_FILENO,
-				"L%u: can't add\n",
-				line_number);
+		write(STDOUT_FILENO, "L%u: can't add\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	n += (*stack)->n;

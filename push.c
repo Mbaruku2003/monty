@@ -31,7 +31,7 @@ void d_push(stack_t **stack, unsigned int line_number)
 	arguenment = strtok(NULL, "\n\t\r ");
 	if (arguenment == NULL || checks_digit(arguenment))
 	{
-		dprintf(STDOUT_FILENO,
+		write(STDOUT_FILENO,
 				"L%u: usage: push integer\n",
 				line_number);
 		exit(EXIT_FAILURE);
@@ -39,7 +39,7 @@ void d_push(stack_t **stack, unsigned int line_number)
 	n = atoi(arguenment);
 	if (!d_add(stack, n))
 	{
-		dprintf(STDOUT_FILENO, "Error: malloc failed\n");
+		write(STDOUT_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	bit.stack_length++;

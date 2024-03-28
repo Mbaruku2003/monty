@@ -1,5 +1,5 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef _MONTY_H_
+#define _MONTY_H_
 
 #include <ctype.h>
 #include <sys/stat.h>
@@ -61,7 +61,7 @@ int dpull(stack_t **head, unsigned int count);
 void d_pint(stack_t **stack, unsigned int line_number);
 void d_add(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *head);
-void dqueue(stack_t **head, unsigned int count);
-void dqueue(stack_t **head, unsigned int line_number);
+void d-queue(stack_t **head, unsigned int count);
+void d_queue(stack_t **head, unsigned int line_number);
 
 #endif
