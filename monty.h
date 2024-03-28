@@ -54,7 +54,7 @@ typedef struct b_s
 extern b_t b;
 
 void dpush(stack_t **head, unsigned int count);
-void dnop(stack_t **head, unsigned int counter);
+void d_nop(stack_t **head, unsigned int counter);
 int dpull(stack_t **head, unsigned int count);
 void adds_node(stack_t **head, int n);
 void free_stack(stack_t *head);
