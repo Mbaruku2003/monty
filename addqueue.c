@@ -9,7 +9,7 @@ void dqueue(stack_t **head, unsigned int count)
 {
 	(void)head;
 	(void)count;
-	b.linefile = 1;
+	bit.linefile = 1;
 }
 /**
  * addqueue(stack_t **head, int n)
@@ -17,7 +17,7 @@ void dqueue(stack_t **head, unsigned int count)
  * @head: the head to the stack list
  * Return: no return
  */
-void addqueue(stack_t **head, int n)
+void dqueue(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node, *alx;
 

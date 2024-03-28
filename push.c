@@ -1,44 +1,46 @@
 #include "monty.h"
 /**
+ * checks_digit - checks that a string only contains digits
+ * @arguenment: string being checked
+ *
+ * Return: 0 if only digits, else return 1
+ */
+static int checks_digit(char *arguenment)
+{
+	int i;
+
+	for (i = 0; arguenment[i]; i++)
+	{
+		if (arguenment[i] == '-' && i == 0)
+			continue;
+		if (isdigit(arguenment[i]) == 0)
+			return (1);
+	}
+	return (0);
+}
+/**
  * c_push - pushes to the top of a stack
  * @head: link to the list
  * @count: counts the number of elements
  */
-void dpush(stack_t **head, unsigned int count)
+void d_push(stack_t **stack, unsigned int line_number)
 {
-	int n, jey = 0, f = 0;
+	int n;
+	char *arguenment;
 
-	if (b.arg)
+	arguenment = strtok(NULL, "\n\t\r ");
+	if (arguenment == NULL || checks_digit(arguenment))
 	{
-		if (b.arg[0] == '_')
-			jey++;
-		for (; b.arg[jey] != '\0'; jey++)
-		{
-			if (b.arg[jey] > 57 || b.arg[jey] < 48)
-				f = 1;
-		}
-		if (f == 1)
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", count);
-			fclose(b.file);
-			free(b.content);
-			free_stack(*head);
-			exit(EXIT_FAILURE);
-		}
-	}
-	else
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", count);
-		fclose(b.file);
-		free(b.content);
-		free_stack(*head);
+		dprintf(STDOUT_FILENO,
+				"L%u: usage: push integer\n",
+				line_number);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(b.arg);
-	if (b.linefile == 0)
-		adds_node(head, n);
-	else
+	n = atoi(arguenment);
+	if (!d_add(stack, n))
 	{
-		addqueue(head, n);
+		dprintf(STDOUT_FILENO, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
+	bit.stack_length++;
 }

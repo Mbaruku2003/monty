@@ -5,22 +5,18 @@
  * @n: the new element
  * Return: void
  */
-void adds_node(stack_t **head, int n)
+void d_add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *newest_node;
-	stack_t *alx;
+	int n = 0;
 
-	alx = *head;
-	newest_node = malloc(sizeof(stack_t));
-	if (newest_node == NULL)
+	if (bit.stack_length < 2)
 	{
-		printf("Error\n");
-		exit(0);
+		dprintf(STDOUT_FILENO,
+				"L%u: can't add\n",
+				line_number);
+		exit(EXIT_FAILURE);
 	}
-	if (alx)
-		alx->prev = newest_node;
-	newest_node->n = n;
-	newest_node->next = *head;
-	newest_node->prev = NULL;
-	*head = newest_node;
+	n += (*stack)->n;
+	d_pop(stack, line_number);
+	(*stack)->n += n;
 }

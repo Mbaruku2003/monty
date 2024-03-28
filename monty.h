@@ -1,14 +1,14 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#include <stddef.h>
+#include <ctype.h>
+#include <sys/stat.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
-#include <ctype.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,26 +39,29 @@ typedef struct instruction_s
 } instruction_t;
 /**
  * struct b_s - contain args, file, line and content
- * @arg: the value
- * @content:lines contents
- * @linefile: changes stacks to ques and vice versa
+ * @queues: the value
+ * @stack_length:lines contents
  * Description: carries values through program
  */
 typedef struct b_s
 {
-	char *arg;
-	FILE *file;
-	char *content;
-	int linefile;
+	int queues;
+	size_t stack_length;
 } b_t;
-extern b_t b;
 
-void dpush(stack_t **head, unsigned int count);
-void d_nop(stack_t **head, unsigned int counter);
+#define STACK 0
+#define QUEUE 1
+
+extern b_t bit;
+
+void d_nop(stack_t **stack, unsigned int line_number);
+void d_push(stack_t **stack, unsigned int line_number);
+void d_pop(stack_t **stack, unsigned int line_number);
 int dpull(stack_t **head, unsigned int count);
-void adds_node(stack_t **head, int n);
+void d_pint(stack_t **stack, unsigned int line_number);
+void d_add(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *head);
 void dqueue(stack_t **head, unsigned int count);
-void addqueue(stack_t **head, int n);
+void dqueue(stack_t **head, unsigned int line_number);
 
 #endif
